@@ -1,0 +1,70 @@
+/* Estilo para a lista de propriedades */
+.property-list-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: linear-gradient(to right, #e2cfd9, #d6e1e8);
+    min-height: 100vh;
+}
+
+/* Container da lista de propriedades */
+.property-list-container {
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 800px;
+}
+
+/* Título da lista */
+.property-list-container h2 {
+    margin-bottom: 1.5rem;
+    font-size: 2rem;
+    color: #333;
+    font-weight: 600;
+}
+
+/* Lista de propriedades */
+.property-list-container ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.property-list-container li {
+    background: #f1f1f1;
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Destaques e detalhes */
+.property-list-container li strong {
+    display: block;
+    font-size: 1.25rem;
+    color: #007bff;
+    margin-bottom: 0.5rem;
+}
+
+.property-list-container li p {
+    color: #555;
+}
+
+/* Responsividade */
+@media (max-width: 600px) {
+    .property-list-container {
+        padding: 1rem;
+    }
+    
+    .property-list-container h2 {
+        font-size: 1.5rem;
+    }
+
+    .property-list-container li {
+        padding: 0.75rem;
+    }
+}

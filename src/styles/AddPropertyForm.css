@@ -1,0 +1,81 @@
+/* Estilo para a página de adicionar propriedade */
+.add-property-page {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background: linear-gradient(to right, #e2cfd9, #d6e1e8);
+    padding: 20px;
+}
+
+/* Container do formulário */
+.add-property-container {
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 600px;
+    text-align: center;
+}
+
+/* Título do formulário */
+.add-property-container h2 {
+    margin-bottom: 1.5rem;
+    font-size: 2rem;
+    color: #333;
+    font-weight: 600;
+}
+
+/* Grupo de formulário */
+.add-property-container input,
+.add-property-container textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    box-sizing: border-box;
+}
+
+/* Placeholder */
+.add-property-container input::placeholder,
+.add-property-container textarea::placeholder {
+    color: #aaa;
+}
+
+/* Botão */
+.add-property-container button {
+    width: 100%;
+    padding: 0.75rem;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+/* Hover do botão */
+.add-property-container button:hover {
+    background-color: #0056b3;
+}
+
+/* Ajustes adicionais para o formulário */
+.add-property-container input[type="text"] {
+    height: 40px;
+}
+
+.add-property-container textarea {
+    height: 120px;
+    resize: vertical; /* Permite redimensionar verticalmente */
+}
+
+/* Mensagens de erro ou sucesso (se necessário) */
+.message {
+    margin-top: 1rem;
+    font-size: 1rem;
+    color: #d9534f; /* Cor para mensagens de erro */
+}
