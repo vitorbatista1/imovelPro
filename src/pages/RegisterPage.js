@@ -7,43 +7,50 @@ import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import '../styles/Login.css';
 
-// Definindo o schema de validação
-const validationSchema = Yup.object({
-  email: Yup.string()
-    .email('Email inválido')
-    .required('Email é obrigatório'),
-  senha: Yup.string()
-    .required('Senha é obrigatória')
-    .min(6, 'A senha deve ter pelo menos 6 caracteres'),
-});
 
-function LoginPage() {
+const validationSchema = Yup.object({
+    email: Yup.string()
+      .email('Email inválido, formato válido: teste@email.com')
+      .required('Email é obrigatório'),
+    senha: Yup.string()
+      .required('Senha é obrigatória')
+      .min(6, 'A senha deve ter pelo menos 6 caracteres'),
+    nome: Yup.string()
+      .required('Nome é obrigatório')
+      .matches(/^[a-zA-Z\s]+$/, 'Nome não pode conter números e caracteres especiais')
+  });
+
+function RegisterPage() {
   const navigate = useNavigate();
 
-  // Função para redirecionar para a página de registro
-  const handleRegister = () => {
-    console.log("Botão clicado");
-    navigate('/register'); // Redireciona para a página de registro
-  };
+  const backToLogin = async() => {
 
-  // Função para lidar com o login
+    navigate('/login')
+
+  }
+
   const handleLogin = async (values) => {
     try {
-      const response = await axios.post('http://localhost:3000/login', values);
-      console.log(response);
+      const response = await axios.post('http://localhost:3000/createUser', values);
+      console.log(response)
+      toast.success('Usúario criado com sucesso!')
       const { token } = response.data;
       localStorage.setItem('token', token);
-      navigate('/properties'); // Redireciona para a página de propriedades
+      navigate('/properties');
     } catch (error) {
-      console.error('Login falhou:', error);
-      toast.error('Email ou senha inválidos.');
+      console.error('Erro ao criar usuário:', error);
+      if (error.response && error.response.status == 409){
+        toast.error(error.response.data.error);
+      }else{
+        toast.error('Erro ao criar usuario. Email já registrado');
+      }
     }
   };
 
   return (
     <div className="login-page">
       <div className="login-container">
-        <h1>Login</h1>
+        <h1>Cadastrar - se</h1>
         <Formik
           initialValues={{ email: '', senha: '' }}
           validationSchema={validationSchema}
@@ -61,6 +68,18 @@ function LoginPage() {
               <ErrorMessage name="email" component="div" className="error" />
             </div>
             <div className="form-group">
+                <label htmlFor="nome">Nome:</label>
+                <Field 
+                  type="nome"
+                  id="nome"
+                  name="nome"
+                  placeholder="Digite seu nome"
+                
+                />     
+                <ErrorMessage name="nome" component="div" className="error" />           
+            </div>
+
+            <div className="form-group">
               <label htmlFor="senha">Senha:</label>
               <Field
                 type="password"
@@ -70,14 +89,15 @@ function LoginPage() {
               />
               <ErrorMessage name="senha" component="div" className="error" />
             </div>
-            <button type="submit">Login</button>
+
+            <button type="submit">Register</button>
+            <button type="button" onClick={backToLogin}>Voltar para login</button>
           </Form>
         </Formik>
-        <button type="button" onClick={handleRegister}>Register</button>
         <ToastContainer />
       </div>
     </div>
   );
 }
 
-export default LoginPage;
+export default RegisterPage;

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import '../styles/AddPropertyForm.css'; // Importa o CSS
+import '../styles/AddPropertyForm.css';
 
 const AddPropertyForm = () => {
   const [endereco, setEndereco] = useState('');
