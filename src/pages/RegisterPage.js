@@ -5,7 +5,7 @@ import { Formik, Field, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import '../styles/Login.css';
+import '../styles/Register.css';
 
 
 const validationSchema = Yup.object({
@@ -90,8 +90,8 @@ function RegisterPage() {
               <ErrorMessage name="senha" component="div" className="error" />
             </div>
 
-            <button type="submit">Register</button>
-            <button type="button" onClick={backToLogin}>Voltar para login</button>
+            <button className='button-register' type="submit">Register</button>
+            <button className='button-backToLogin' type="button" onClick={backToLogin}>Voltar para login</button>
           </Form>
         </Formik>
         <ToastContainer />

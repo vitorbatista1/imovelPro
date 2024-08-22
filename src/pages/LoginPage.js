@@ -70,10 +70,10 @@ function LoginPage() {
               />
               <ErrorMessage name="senha" component="div" className="error" />
             </div>
-            <button type="submit">Login</button>
+            <button className='button-login' type="submit">Login</button>
           </Form>
         </Formik>
-        <button type="button" onClick={handleRegister}>Register</button>
+        <button type="button" className='button-register' onClick={handleRegister}>Register</button>
         <ToastContainer />
       </div>
     </div>

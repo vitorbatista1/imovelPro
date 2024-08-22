@@ -1,0 +1,137 @@
+/* src/styles/property-management.css */
+
+/* Estilo geral do container */
+.property-management-page {
+  padding: 2rem;
+  background-color: #f9f9f9;
+  min-height: 100vh;
+  font-family: Arial, sans-serif;
+}
+
+/* Estilo para o título */
+.property-management-page h1 {
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+/* Estilo para a saudação */
+.property-management-page p {
+  font-size: 1.25rem;
+  color: #666;
+  margin-bottom: 2rem;
+}
+
+/* Estilo para o botão de logout */
+.property-management-page button {
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  color: white;
+  background-color: #007bff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+  margin-bottom: 2rem; /* Espaçamento abaixo do botão */
+}
+
+/* Efeito de hover do botão */
+.property-management-page button:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px);
+}
+
+/* Estilo para o foco do botão */
+.property-management-page button:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.5);
+}
+
+/* Estilo para a lista de propriedades */
+.property-list-container {
+  background: #ffffff;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 900px;
+  margin-bottom: 2rem; /* Espaçamento abaixo da lista de propriedades */
+}
+
+/* Título da lista */
+.property-list-container h2 {
+  margin-bottom: 1.5rem;
+  font-size: 1.75rem; /* Ajustado para destaque */
+  color: #333;
+  font-weight: 600;
+  text-align: center; /* Centraliza o título */
+}
+
+/* Lista de propriedades */
+.property-list-container ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.property-list-container li {
+  background: #ffffff;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border: 1px solid #ddd; /* Adiciona uma borda sutil */
+}
+
+/* Destaques e detalhes */
+.property-list-container li strong {
+  display: block;
+  font-size: 1.25rem;
+  color: #007bff;
+  margin-bottom: 0.5rem;
+}
+
+.property-list-container li div {
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+  color: #555;
+}
+
+.property-list-container li p {
+  color: #666;
+  line-height: 1.6;
+}
+
+/* Mensagem de "nenhuma propriedade disponível" */
+.no-properties-message {
+  text-align: center;
+  font-size: 1.25rem;
+  color: #999;
+  padding: 2rem;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsividade */
+@media (max-width: 600px) {
+  .property-management-page {
+    padding: 1rem; /* Ajusta o padding para dispositivos menores */
+  }
+  
+  .property-management-page h1 {
+    font-size: 1.5rem; /* Ajusta o tamanho do título para dispositivos menores */
+  }
+  
+  .property-management-page p {
+    font-size: 1rem; /* Ajusta o tamanho da saudação para dispositivos menores */
+  }
+  
+  .property-list-container h2 {
+    font-size: 1.5rem; /* Ajusta o tamanho do título da lista para dispositivos menores */
+  }
+  
+  .property-list-container li {
+    padding: 0.75rem; /* Ajusta o padding dos itens da lista para dispositivos menores */
+  }
+}

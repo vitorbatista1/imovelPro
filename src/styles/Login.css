@@ -51,7 +51,7 @@
 }
 
 /* Botão */
-button {
+.button-login {
   width: 100%;
   padding: 0.75rem;
   background-color: #007bff;
@@ -60,7 +60,22 @@ button {
   border-radius: 4px;
   font-size: 1rem;
   cursor: pointer;
+  font-weight: 600;
   transition: background-color 0.3s;
+}
+
+
+.button-register{
+  width: 50%;
+  padding: 0.60rem;
+  margin-top: 20px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  border: none;
+  background-color: blue;
+  color: white;
+  cursor: pointer;
 }
 
 /* Hover do botão */
