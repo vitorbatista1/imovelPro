@@ -1,109 +1,74 @@
 /* src/styles/AddPropertyForm.css */
-
-/* Estilo para a página de adicionar propriedade */
 .add-property-page {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    background: linear-gradient(to right, #f9f7f7, #e4e7ec); /* Gradiente suave e moderno */
-    padding: 20px;
-  }
-  
-  /* Container do formulário */
-  .add-property-container {
-    background: #ffffff;
-    padding: 1.5rem; /* Reduzido padding */
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    max-width: 500px; /* Diminuído para formulário mais compacto */
-    text-align: left; /* Alinha o texto à esquerda para melhor legibilidade */
-  }
-  
-  /* Título do formulário */
-  .add-property-container h2 {
-    margin-bottom: 1rem; /* Reduzido espaçamento abaixo do título */
-    font-size: 1.75rem; /* Ajustado o tamanho do título */
-    color: #333;
-    font-weight: 600; /* Peso de fonte ajustado */
-    text-align: center; /* Centraliza o título */
-  }
-  
-  /* Grupo de formulário */
-  .add-property-container input,
-  .add-property-container textarea {
-    width: 100%;
-    padding: 0.5rem; /* Reduzido padding */
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    font-size: 0.875rem; /* Ajustado o tamanho da fonte */
-    margin-bottom: 0.75rem; /* Reduzido espaçamento entre campos */
-    box-sizing: border-box;
-  }
-  
-  /* Placeholder */
-  .add-property-container input::placeholder,
-  .add-property-container textarea::placeholder {
-    color: #aaa;
-  }
-  
-  /* Botão */
-  .add-property-container button {
-    width: 100%;
-    padding: 0.5rem; /* Reduzido padding */
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    font-size: 0.875rem; /* Ajustado o tamanho da fonte */
-    cursor: pointer;
-    transition: background-color 0.3s, transform 0.2s;
-    margin-top: 1rem; /* Espaço acima do botão */
-  }
-  
-  /* Hover do botão */
-  .add-property-container button:hover {
-    background-color: #0056b3;
-    transform: translateY(-2px);
-  }
-  
-  /* Ajustes adicionais para o formulário */
-  .add-property-container input[type="text"],
-  .add-property-container textarea {
-    height: auto; /* Remove a altura fixa para melhor adaptação ao conteúdo */
-  }
-  
-  .add-property-container textarea {
-    resize: vertical; /* Permite redimensionar verticalmente */
-    min-height: 100px; /* Altura mínima para a área de texto */
-  }
-  
-  /* Mensagens de erro ou sucesso */
-  .message {
-    margin-top: 1rem;
-    font-size: 0.875rem; /* Ajustado o tamanho da fonte */
-    color: #d9534f; /* Cor para mensagens de erro */
-    text-align: center; /* Centraliza as mensagens */
-  }
-  
-  /* Responsividade */
-  @media (max-width: 600px) {
-    .add-property-container {
-      padding: 1rem; /* Ajusta o padding para dispositivos menores */
-    }
-    
-    .add-property-container h2 {
-      font-size: 1.5rem; /* Ajusta o tamanho do título para dispositivos menores */
-    }
-  
-    .add-property-container input,
-    .add-property-container textarea {
-      font-size: 0.75rem; /* Ajusta o tamanho da fonte para dispositivos menores */
-    }
-    
-    .add-property-container button {
-      font-size: 0.75rem; /* Ajusta o tamanho da fonte do botão para dispositivos menores */
-    }
-  }
-  
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+
+.add-property-container {
+  max-width: 600px;
+  width: 100%;
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #555;
+}
+
+input[type="text"], textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+textarea {
+  resize: vertical;
+  height: 100px;
+}
+
+button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+.message {
+  margin-top: 15px;
+  padding: 10px;
+  border-radius: 4px;
+}
+
+.message.success {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.message.error {
+  background-color: #f8d7da;
+  color: #721c24;
+}

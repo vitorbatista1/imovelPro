@@ -5,6 +5,8 @@ import PropertyManagementPage from './pages/PropertyManagementPage';
 import { useAuth } from './hooks/useAuth'; // Custom Hook for authentication
 import '../src/styles/global.styles.css'
 import RegisterPage from './pages/RegisterPage';
+import '@fortawesome/fontawesome-free/css/all.min.css';
+
 
 function App() {
   const { isAuthenticated } = useAuth();

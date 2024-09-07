@@ -1,0 +1,22 @@
+/* src/styles/DashboardCard.css */
+.dashboard-card {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    flex: 1;
+    min-width: 200px;
+  }
+  
+  .card-title {
+    font-size: 16px;
+    color: #333;
+    margin: 0 0 10px 0;
+  }
+  
+  .card-value {
+    font-size: 24px;
+    font-weight: bold;
+    color: #555;
+  }
+  
