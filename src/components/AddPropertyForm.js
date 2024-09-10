@@ -1,9 +1,9 @@
-// src/components/AddPropertyForm.js
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import {jwtDecode} from 'jwt-decode'; // Corrigido para a importação correta
 import '../styles/AddPropertyForm.css';
 
-const AddPropertyForm = ({ onClose }) => {
+const AddPropertyForm = ({ onClose, onSuccess }) => {
   const [endereco, setEndereco] = useState('');
   const [tipo, setTipo] = useState('');
   const [fotos, setFotos] = useState('');
@@ -11,23 +11,43 @@ const AddPropertyForm = ({ onClose }) => {
   const [status, setStatus] = useState('');
   const [message, setMessage] = useState('');
   const [error, setError] = useState('');
+  const [userId, setUserId] = useState('');
+
+  useEffect(() => {
+    // Supondo que o token JWT está armazenado em localStorage
+    const token = localStorage.getItem('token');
+    if (token) {
+      try {
+        const decoded = jwtDecode(token);
+        console.log('ID Decodificado:', decoded.id); // Remover o log em produção
+        setUserId(decoded.id);
+      } catch (error) {
+        console.error('Erro ao decodificar o token:', error);
+      }
+    }
+  }, []);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
 
+    // Verificação de campos obrigatórios
     if (!endereco || !tipo || !descricao || !status) {
       setError('Por favor, preencha todos os campos obrigatórios.');
       return;
     }
 
     try {
-      await axios.post('http://localhost:3000/propriedades', {
+      // Enviar dados para o servidor
+      await axios.post('http://localhost:3000/propriedade', {
         endereco,
         tipo,
         fotos: fotos.split(',').map(url => url.trim()),
         descricao,
-        status
+        status,
+        userId
       });
+
+      // Mensagem de sucesso e limpar o formulário
       setMessage('Propriedade adicionada com sucesso!');
       setEndereco('');
       setTipo('');
@@ -35,11 +55,16 @@ const AddPropertyForm = ({ onClose }) => {
       setDescricao('');
       setStatus('');
       setError('');
-      if (onClose) onClose(); // Chama a função de fechamento ao adicionar a propriedade
+
+      // Chamando a função onSuccess, se fornecida
+      if (onSuccess) onSuccess();
+
+      // Fechar o formulário
+      if (onClose) onClose();
     } catch (error) {
-      console.error('Error adding property:', error);
+      console.error('Erro ao tentar adicionar uma propriedade:', error.response || error);
       setMessage('');
-      setError('Erro ao adicionar propriedade. Tente novamente.');
+      setError('Erro ao adicionar propriedade. Contate um administrador.');
     }
   };
 

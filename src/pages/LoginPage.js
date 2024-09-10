@@ -33,7 +33,7 @@ function LoginPage() {
       console.log(response);
       const { token } = response.data;
       localStorage.setItem('token', token);
-      navigate('/properties'); // Redireciona para a página de propriedades
+      navigate('/properties');
     } catch (error) {
       console.error('Login falhou:', error);
       toast.error('Email ou senha inválidos.');

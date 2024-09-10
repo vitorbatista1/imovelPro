@@ -1,0 +1,102 @@
+/* styles/Header.css */
+
+.header {
+    background: #282c34;
+    color: #fff;
+    padding: 20px 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  
+  .logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+  }
+  
+  .logo-link {
+    color: #61dafb;
+    text-decoration: none;
+  }
+  
+  .nav {
+    flex-grow: 1;
+  }
+  
+  .nav-list {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .nav-item {
+    margin: 0 15px;
+  }
+  
+  .nav-link {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: color 0.3s;
+  }
+  
+  .nav-link:hover {
+    color: #61dafb;
+  }
+  
+  .user-info {
+    display: flex;
+    align-items: center;
+  }
+  
+  .user-name {
+    margin-right: 20px;
+    font-size: 1rem;
+  }
+  
+  .btn {
+    padding: 10px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    color: #fff;
+    font-weight: 500;
+    margin-left: 10px;
+    transition: background-color 0.3s;
+    cursor: pointer;
+    border: none;
+  }
+  
+  .btn-login {
+    background: #61dafb;
+  }
+  
+  .btn-login:hover {
+    background: #4aa3d4;
+  }
+  
+  .btn-register {
+    background: #ff6f61;
+  }
+  
+  .btn-register:hover {
+    background: #e55b50;
+  }
+  
+  .btn-logout {
+    background: #ff6f61;
+  }
+  
+  .btn-logout:hover {
+    background: #e55b50;
+  }
+  

@@ -1,33 +1,11 @@
-// src/components/PropertyList.js
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import axios from 'axios';
 import '../styles/PropertyList.css';
 
-const PropertyList = () => {
-  const [properties, setProperties] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+const PropertyList = ({ properties, loading, error, onDelete }) => {
+  if (loading) return <div className="loading-message">Carregando propriedades...</div>;
+  if (error) return <div className="error-message">{error}</div>;
 
-  useEffect(() => {
-    const fetchProperties = async () => {
-      const token = localStorage.getItem('token');
-      try {
-        const response = await axios.get('http://localhost:3000/propriedades', {
-          headers: {
-            Authorization: `Bearer ${token}`
-          }
-        });
-        setProperties(response.data);
-        setLoading(false);
-      } catch (error) {
-        console.error('Error fetching properties:', error);
-        setError('Erro ao carregar propriedades.');
-        setLoading(false);
-      }
-    };
-
-    fetchProperties();
-  }, []);
 
   const deletePropriedade = async (id) => {
     const token = localStorage.getItem('token');
@@ -37,17 +15,16 @@ const PropertyList = () => {
           Authorization: `Bearer ${token}`
         }
       });
-      setProperties(properties.filter(property => property.id !== id));
+      // Chama a função de callback passada como prop para atualizar a lista de propriedades
+      if (onDelete) onDelete(id);
     } catch (error) {
-      console.error('Error deleting property:', error);
-      setError('Erro ao excluir propriedade.');
+      console.error('Erro ao excluir a propriedade:', error);
+      alert('Erro ao excluir propriedade.');
     }
   };
 
-  if (loading) return <div className="loading-message">Carregando propriedades...</div>;
-  if (error) return <div className="error-message">{error}</div>;
-
   return (
+    
     <div className="property-list-page">
       <div className="property-list-container">
         <h2>Propriedades</h2>
@@ -62,12 +39,12 @@ const PropertyList = () => {
                     className="property-image"
                   />
                 )}
-                  <button 
-                    className="delete-button" 
-                    onClick={() => deletePropriedade(property.id)}
-                  >
-                    <i className="fas fa-trash-alt"></i>
-                  </button>
+                <button
+                  className="delete-button"
+                  onClick={() => deletePropriedade(property.id)}
+                >
+                  <i className="fas fa-trash-alt"></i>
+                </button>
 
                 <div className="property-details">
                   <h3>{property.endereco}</h3>
